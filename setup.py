@@ -18,6 +18,11 @@ setup(
     author_email='mark.washenberger@markwash.net',
     url='',
     license=license,
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=('tests', 'docs')),
+    entry_points={
+        'console_scripts': [
+            'hoke = hoke.main:main',
+        ],
+    },
 )
 

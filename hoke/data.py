@@ -1,36 +1,5 @@
 import collections
 
-"""
- 'approver': None,
- 'assignee': <person at https://api.launchpad.net/devel/~nikhil-komawar>,
- 'completer': None,
- 'date_completed': None,
- 'date_created': datetime.datetime(2013, 4, 25, 19, 17, 59, 379479, tzinfo=TimeZone(0)),
- 'date_started': datetime.datetime(2013, 6, 18, 21, 35, 34, 22497, tzinfo=TimeZone(0)),
- 'definition_status': u'Approved',
- 'direction_approved': True,
- 'drafter': None,
- 'has_accepted_goal': True,
- 'http_etag': u'"df9387e1460e90866ba2a9fb724201925a45906b-ca03afa29d4c273065cbabf060cd002ce5e9be0e"',
- 'implementation_status': u'Slow progress',
- 'information_type': u'Public',
- 'is_complete': False,
- 'is_started': True,
- 'lifecycle_status': u'Started',
- 'milestone': <milestone at https://api.launchpad.net/devel/glance/+milestone/icehouse-3>,
- 'name': u'async-glance-workers',
- 'owner': <person at https://api.launchpad.net/devel/~markwash>,
- 'priority': u'High',
- 'self_link': u'https://api.launchpad.net/devel/glance/+spec/async-glance-workers',
- 'specification_url': None,
- 'starter': <person at https://api.launchpad.net/devel/~markwash>,
- 'summary': u'Provide and use an internal library api for asynchronous processing in glance, to do things like image imports (asynchronously processing a copy-from). This can later be used to support image conversion and metadata extraction, though those should fall under other blueprints. A simple eventlet thread-based implementation may be provided, alongside something more like a remote rpc queue worker. There should be room for the implementation of the library api to be backed by other cool drivers, like ZeroVM (http://zerovm.org/wiki/The_Cloud_Hypervisor)',
- 'target': <project at https://api.launchpad.net/devel/glance>,
- 'title': u'Asynchronous Processing in Glance',
- 'web_link': u'https://blueprints.launchpad.net/glance/+spec/async-glance-workers',
- 'whiteboard': u'Targeting to h2 based on how centrally it figures in other blueprints\n\ndiscussion items:-\n\nrequirements at :- https://etherpad.openstack.org/havana-glance-requirements\n\nGerrit topic: https://review.openstack.org/#q,topic:bp/async-glance-workers,n,z\n\nAddressed by: https://review.openstack.org/42817\n\xa0\xa0\xa0\xa0Enable tasks data model and table for async worker\n\nAddressed by: https://review.openstack.org/53935\n\xa0\xa0\xa0\xa0Adds tasks to db api\n\nAddressed by: https://review.openstack.org/54198\n\xa0\xa0\xa0\xa0Adds domain level support for tasks\n\nAddressed by: https://review.openstack.org/54252\n\xa0\xa0\xa0\xa0Introduce Task Info Table\n\nAddressed by: https://review.openstack.org/54380\n\xa0\xa0\xa0\xa0Implement Sparse Task\n\nAddressed by: https://review.openstack.org/59814\n\xa0\xa0\xa0\xa0Enable tasks REST API for async worker\n\nAddressed by: https://review.openstack.org/44355\n\xa0\xa0\xa0\xa0Adds executor interface and example import script\n\nAddressed by: https://review.openstack.org/58652\n\xa0\xa0\xa0\xa0Documentation for Glance tasks\n',
- 'workitems_text': u''}
-"""
 
 RawBlueprint = collections.namedtuple(
     'RawBlueprint',

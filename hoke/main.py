@@ -2,6 +2,7 @@ import argparse
 
 from .commands import fetch
 from .commands import hello
+from .commands import show
 
 
 def main():
@@ -24,6 +25,7 @@ def get_subcommands():
     return [
         hello.get_command(),
         fetch.get_command(),
+        show.get_command(),
     ]
 
 

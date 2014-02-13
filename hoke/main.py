@@ -1,4 +1,6 @@
 import argparse
+
+from .commands import fetch
 from .commands import hello
 
 
@@ -20,7 +22,8 @@ def get_argument_parser():
 
 def get_subcommands():
     return [
-        hello.get_command()
+        hello.get_command(),
+        fetch.get_command(),
     ]
 
 

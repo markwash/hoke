@@ -1,6 +1,9 @@
+import sys
+
 from .. import db
 
 from . import show_inconsistent
+from . import show_new
 
 def get_command():
     return Command()
@@ -20,9 +23,11 @@ class Command(object):
 
     def get_subcommands(self):
         return [
-            show_inconsistent.get_command()
+            show_inconsistent.get_command(),
+            show_new.get_command(),
         ]
 
     def execute(self, args):
         hoke_db = db.open_db(args.file)
         args.show_command_obj.execute(hoke_db, args)
+        sys.stdout.flush()

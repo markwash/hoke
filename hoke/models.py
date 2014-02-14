@@ -24,8 +24,10 @@ def blueprint_from_raw(raw_bp):
         date_tagged=date_tagged,
         tag=tag,
         assignee=raw_bp.assignee,
+        owner=raw_bp.owner,
         definition_approved=raw_bp.definition_status == 'Approved',
         direction_approved=raw_bp.direction_approved,
+        summary=raw_bp.summary,
     )
 
 
@@ -51,7 +53,9 @@ def get_whiteboard_tags(raw_bp):
 class Blueprint(object):
     def __init__(self, name, title, url, milestone,
                  date_created, date_tagged, tag,
-                 assignee, definition_approved, direction_approved):
+                 assignee, owner,
+                 definition_approved, direction_approved,
+                 summary):
             self.name = name
             self.title = title
             self.url = url
@@ -60,5 +64,7 @@ class Blueprint(object):
             self.date_tagged = date_tagged
             self.tag = tag
             self.assignee = assignee
+            self.owner = owner
             self.definition_approved = definition_approved
             self.direction_approved = direction_approved
+            self.summary = summary

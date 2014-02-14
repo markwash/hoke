@@ -32,6 +32,9 @@ class Command(object):
         return bps_and_reasons
 
     def display(self, bps_and_reasons):
+        count = len(bps_and_reasons)
+        print "There are {} inconsistent blueprints".format(count)
+        print
         first = True
         for bp, checks in bps_and_reasons:
             if first:
@@ -42,3 +45,5 @@ class Command(object):
             for check in checks:
                 print "  * {}".format(check.reason)
 
+        print
+        print "Displayed {} inconsistent blueprints".format(count)

@@ -110,3 +110,17 @@ def get_consistency_checks():
         RejectedImpliesNotApproved(),
         InfoWaitImpliesNotFullyApproved(),
     ]
+
+
+def get_new_check():
+    return NewCheck()
+
+
+class NewCheck(object):
+    """Determine if a blueprint is in the "new" state"""
+
+    def check(self, bp):
+        return (bp.tag is None
+                and not bp.milestone
+                and not bp.direction_approved
+                and not bp.definition_approved)

@@ -73,7 +73,7 @@ class InfoWaitImpliesYoung(object):
 
     def check(self, bp):
         if bp.tag == 'more-info':
-            age = datetime.date.now() - bp.date_tagged
+            age = datetime.datetime.now().date() - bp.date_tagged
             return age <= datetime.timedelta(days=14)
         return True
 

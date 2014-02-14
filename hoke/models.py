@@ -36,15 +36,16 @@ def get_whiteboard_tags(raw_bp):
         return []
 
     tag_pattern = re.compile(
-        '^\s*(?P<year>[0-9]{4})-(?P<month>[0-9]{1,2})-(?P<day>[0-9]{1,2})'
-        '\s+(?P<tag>\S+)\s+(?P<tagger>\S+)\s*$'
+        '^\s*(?P<tagger>\S+)\s+(?P<tag>\S+)'
+        '\s+(?P<year>[0-9]{4})-(?P<month>[0-9]{1,2})-(?P<day>[0-9]{1,2})\s*$'
     )
     tags = []
     for line in raw_bp.whiteboard.split('\n'):
         match = tag_pattern.match(line)
         if not match:
             continue
-        date = datetime.date(*match.groups('year', 'month', 'day'))
+        date_params = [int(x) for x in match.group('year', 'month', 'day')]
+        date = datetime.date(*date_params)
         tag = match.group('tag')
         tags.append((tag, date))
     return tags

@@ -6,6 +6,20 @@ projects. The name is a reference to the indomitable Hoke from
 "Driving Miss Daisy." The connection is that OpenStack teams that
 maintain blueprints are typically called "drivers".
 
+Install
+=======
+You can use
+
+::
+  
+  make init install
+
+to install the project, but you probably want to set up a virtual environment first!
+
+::
+  
+  virtualenv .venv
+
 Use
 ===
 

@@ -9,12 +9,3 @@ test:
 
 uninstall:
 	pip uninstall hoke
-
-venv:
-	virtualenv .venv
-
-virtual-install: venv init install
-
-clobber:
-	deactivate || :
-	rm -rf .venv

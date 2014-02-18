@@ -48,6 +48,7 @@ def get_whiteboard_tags(raw_bp):
         date = datetime.date(*date_params)
         tag = match.group('tag')
         tags.append((tag, date))
+    tags.reverse()
     return tags
 
 

@@ -3,7 +3,9 @@ import sys
 from .. import db
 
 from . import show_inconsistent
+from . import show_infowait
 from . import show_new
+
 
 def get_command():
     return Command()
@@ -24,6 +26,7 @@ class Command(object):
     def get_subcommands(self):
         return [
             show_inconsistent.get_command(),
+            show_infowait.get_command(),
             show_new.get_command(),
         ]
 

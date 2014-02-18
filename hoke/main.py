@@ -2,6 +2,7 @@ import argparse
 
 from .commands import fetch
 from .commands import show
+from .commands import status
 
 
 def main():
@@ -24,6 +25,7 @@ def get_subcommands():
     return [
         fetch.get_command(),
         show.get_command(),
+        status.get_command(),
     ]
 
 

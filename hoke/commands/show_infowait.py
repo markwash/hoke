@@ -1,6 +1,7 @@
-from .. import display
 from .. import models
 from .. import states
+
+from .. import display
 
 
 def get_command():
@@ -8,28 +9,28 @@ def get_command():
 
 
 class Command(object):
-    name = 'new'
-    help = ('List new blueprints')
+    name = 'infowait'
+    help = ('List blueprints waiting for more info')
 
     def add_arguments(self, parser):
         pass
 
     def execute(self, hoke_db, args):
-        bps = self.get_new_bps(hoke_db)
-        bps.sort(key=lambda x: x.date_created)
+        bps = self.get_bps(hoke_db)
+        bps.sort(key=lambda x: x.date_tagged)
         self.display(bps)
 
-    def get_new_bps(self, hoke_db):
+    def get_bps(self, hoke_db):
         bps = []
         for raw_bp in hoke_db.list_blueprints():
             bp = models.blueprint_from_raw(raw_bp)
-            new_check = states.get_new_check()
-            if new_check.check(bp):
+            check = states.get_infowait_check()
+            if check.check(bp):
                 bps.append(bp)
         return bps
 
     def display(self, bps):
-        print "There are {} new blueprints".format(len(bps))
+        print "There are {} blueprints that need more info".format(len(bps))
         print
         first = True
         for bp in bps:
@@ -39,11 +40,8 @@ class Command(object):
                 print
             print u"{}:".format(bp.title)
             print u"  Owner: {}".format(bp.owner)
-            print u"  Assignee: {}".format(bp.assignee)
-            print u"  Date Created: {}".format(
-                bp.date_created.date().isoformat())
+            print u"  Date Tagged: {}".format(
+                bp.date_tagged.isoformat())
             print u"  URL: {}".format(bp.url)
-            print u"  Summary:"
-            display.print_summary(bp.summary, prefix='    ')
         print
         print "Displayed {} new blueprints".format(len(bps))

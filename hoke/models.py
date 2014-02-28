@@ -10,7 +10,7 @@ def blueprint_from_raw(raw_bp):
         tag = None
         date_tagged = None
     else:
-        tag, date_tagged = tags[0]
+        tag, date_tagged = tags[-1]
         tag = tag.lower()
         if tag == 'untagged':
             tag = None
